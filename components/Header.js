@@ -73,6 +73,11 @@ function Nav() {
                       Contact
                     </a>
                   </Link>
+                  <Link href={"/wishList"}>
+                    <a className="text-black hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+                      Wish List
+                    </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -91,27 +96,14 @@ function Nav() {
                   </Link>
                 )}
               </div>
-              <button className="mr-3 md:mr-6">
-                <FaSearch className="text-xl md:text-2xl  hover:text-blue-700" />
-              </button>
+
               <Link href={"/cart"}>
                 <button className="relative mr-3 md:mr-6 flex items-center capitalize hover:text-blue-700">
                   <FaShoppingCart className="text-xl md:text-2xl mr-2 " />
-                  <p className="text-gray-800 font-bold">Bag ({cartItems})</p>
+                  <p className="text-gray-800 font-bold">({cartItems})</p>
                 </button>
               </Link>
-              <Link href={"/wishList"}>
-                <button className="relative mr-6 md:mr-0 ">
-                  {wishList.length > 0 ? (
-                    <FaHeart className="text-xl md:text-2xl hover:text-blue-700" />
-                  ) : (
-                    <FaRegHeart className="text-xl md:text-2xl hover:text-blue-700" />
-                  )}
-                  <p className="absolute -top-3 -right-3 text-base font-bold">
-                    {wishList.length}
-                  </p>
-                </button>
-              </Link>
+
               <button
                 className="md:hidden"
                 onClick={() => setIsOpen(!isOpen)}
@@ -157,6 +149,11 @@ function Nav() {
                 <Link href={"/contact"}>
                   <a className="text-black hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
                     Contact
+                  </a>
+                </Link>
+                <Link href={"/wishList"}>
+                  <a className="text-black hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+                    Wish List
                   </a>
                 </Link>
               </div>
