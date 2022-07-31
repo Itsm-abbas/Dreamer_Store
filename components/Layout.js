@@ -11,6 +11,7 @@ const Layout = ({ children, title }) => {
     <>
       <Head>
         <title>{title ? title + " - Dreamer Store" : "Dreamer Store"}</title>
+        <link rel="icon" href="/logo.png" />
       </Head>
       <div className="flex flex-col justify-between min-h-screen">
         <Header />
