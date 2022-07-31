@@ -12,7 +12,7 @@ import {
   FaShoppingCart,
   FaRegUser,
 } from "react-icons/fa";
-import DropDown from "./dropdown";
+import DropDown from "./Dropdown";
 import Cookies from "js-cookie";
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
