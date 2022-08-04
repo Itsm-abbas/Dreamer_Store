@@ -19,6 +19,7 @@ export default async function handler(req, res) {
           name,
           email,
           password: hashedPassword,
+          avatar: "",
         });
         await newUser.save();
         return res.status(201).json({
@@ -31,14 +32,5 @@ export default async function handler(req, res) {
         message: error.message,
       });
     }
-
-    // bcrypt.hash(password, 10, function (err, hash) {
-    //   var newUser = new User({
-    //     name: name,
-    //     email: email,
-    //     password: hash,
-    //   });
-    //   newUser.save();
-    // });
   }
 }

@@ -4,7 +4,7 @@ import { Menu, Transition } from "@headlessui/react";
 import { FaChevronDown } from "react-icons/fa";
 import { logoutUser } from "../redux/User/user.action";
 import { useDispatch, useSelector } from "react-redux";
-import Cookies from "js-cookie";
+import Link from "next/link";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -34,15 +34,16 @@ export default function DropDown() {
           <div className="py-1">
             <Menu.Item>
               {({ active }) => (
-                <a
-                  href="#"
-                  className={classNames(
-                    active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                    "block px-4 py-2 text-sm"
-                  )}
-                >
-                  Account settings
-                </a>
+                <Link href={`/profile?id=${user._id}`}>
+                  <a
+                    className={classNames(
+                      active ? "bg-gray-100 text-gray-900 " : "text-gray-700 ",
+                      "block px-4 py-2 text-sm "
+                    )}
+                  >
+                    Account settings
+                  </a>
+                </Link>
               )}
             </Menu.Item>
             <Menu.Item>

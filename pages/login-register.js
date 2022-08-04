@@ -32,6 +32,7 @@ const LoginRegister = () => {
   if (validatePassword === password) {
     validate = true;
   }
+
   const RegisterSubmit = (data) => {
     setLoader({ ...loader, register: true });
     if (validate) {
@@ -64,10 +65,6 @@ const LoginRegister = () => {
           login: true,
         });
         dispatch(loginUser(res.data));
-        // if (typeof window !== "undefined") {
-        //   window.localStorage.setItem("isLoggedIn", true);
-        //   window.localStorage.setItem("user", JSON.stringify(res.data));
-        // }
       })
       .then(() => {
         setLoader({
@@ -99,11 +96,9 @@ const LoginRegister = () => {
         newestOnTop={false}
         closeOnClick
         rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
+        limit={1}
       />
-      <div className="container px-6 py-12 h-full">
+      <div className="container px-2 md:px-6 py-12 h-full">
         <div className="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
           <div className="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
             <img
@@ -128,7 +123,7 @@ const LoginRegister = () => {
                       type="text"
                       className={`${
                         errors?.name?.type === "required" && "border-red-800"
-                      } form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:outline-none`}
+                      } form-control block w-full px-4 py-2 text-lg md:text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:outline-none`}
                       placeholder="Full Name"
                       {...register("name", { required: true })}
                     />
@@ -138,7 +133,7 @@ const LoginRegister = () => {
                       type="email"
                       className={`${
                         errors?.email?.type === "required" && "border-red-800"
-                      } form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:outline-none`}
+                      } form-control block w-full px-4 py-2 text-lg md:text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:outline-none`}
                       placeholder="Email address"
                       {...register("email", { required: true })}
                     />
@@ -150,7 +145,7 @@ const LoginRegister = () => {
                       className={`${
                         errors?.password?.type === "required" &&
                         "border-red-800"
-                      } form-control block mb-1 w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:outline-none`}
+                      } form-control block mb-1 w-full px-4 py-2 text-lg md:text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:outline-none`}
                       placeholder="Password"
                       {...register("password", {
                         required: true,
@@ -171,7 +166,7 @@ const LoginRegister = () => {
                         errors?.repeat_password?.type === "required" ||
                         errors?.repeat_password?.type === "minLength" ||
                         (!validate && "border-red-800")
-                      } form-control block mb-2 w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:outline-none`}
+                      } form-control block mb-2 w-full px-4 py-2 text-lg md:text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:outline-none`}
                       placeholder="Repeat Password"
                       {...register("repeat_password", {
                         required: true,
@@ -210,7 +205,7 @@ const LoginRegister = () => {
                       type="email"
                       className={`${
                         errors?.email?.type === "required" && "border-red-800"
-                      } form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:border-blue-500 focus:text-gray-700 focus:bg-white focus:outline-none`}
+                      } form-control block w-full px-4 py-2 text-lg md:text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:border-blue-500 focus:text-gray-700 focus:bg-white focus:outline-none`}
                       placeholder="Email address"
                       {...register("email", { required: true })}
                     />
@@ -222,11 +217,10 @@ const LoginRegister = () => {
                       className={`${
                         errors?.password?.type === "required" &&
                         "border-red-800"
-                      } form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:border-blue-500 focus:text-gray-700 focus:bg-white focus:outline-none`}
+                      } form-control block w-full px-4 py-2 text-lg md:text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:border-blue-500 focus:text-gray-700 focus:bg-white focus:outline-none`}
                       placeholder="Password"
                       {...register("password", {
                         required: true,
-                        minLength: 6,
                       })}
                     />
                   </div>

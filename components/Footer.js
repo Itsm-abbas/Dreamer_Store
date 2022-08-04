@@ -9,20 +9,20 @@ import {
 } from "react-icons/fa";
 const Footer = () => {
   return (
-    <footer className="border-gray-300 border-t-2 text-black body-font">
+    <footer className="border-gray-300 border-t-2 bg-white text-black shadow-md dark:bg-gray-700 dark:text-white body-font">
       <div className="px-5 py-4 mx-auto flex items-center sm:flex-row flex-col">
         <div className="flex-shrink-0">
           <Link href={"/"}>
-            <span className="cursor-pointer text-xl font-bold text-black">
+            <span className="cursor-pointer text-xl font-bold ">
               Dreamer&nbsp;
             </span>
           </Link>
-          <span className="text-xl text-black">Store</span>
+          <span className="text-xl ">Store</span>
         </div>
         <p className="text-sm  sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
           © 2022 dreamer store —
           <a
-            href="https://twitter.com/anwarabbas2000"
+            href="https://abbas.vercel.app"
             className="text-gray-600 ml-1"
             rel="noopener noreferrer"
             target="_blank"
@@ -34,7 +34,7 @@ const Footer = () => {
           <a className="">
             <FaFacebook />
           </a>
-          <a className="ml-3 text-gray-500">
+          <a className="ml-3 ">
             <FaTwitter />
           </a>
           <a className="ml-3 ">

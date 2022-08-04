@@ -1,4 +1,4 @@
-import { LOGIN_USER, LOGOUT_USER } from "./user.types";
+import { LOGIN_USER, LOGOUT_USER, UPDATE_USER } from "./user.types";
 import { toast } from "react-toastify";
 
 export const loginUser = (user) => ({
@@ -15,3 +15,7 @@ export const logoutUser = () => {
     refresh,
   };
 };
+export const updateUser = (user) => ({
+  type: UPDATE_USER,
+  payload: user,
+});

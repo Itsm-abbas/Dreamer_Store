@@ -1,4 +1,4 @@
-import { LOGIN_USER, LOGOUT_USER } from "./user.types";
+import { LOGIN_USER, LOGOUT_USER, UPDATE_USER } from "./user.types";
 import Cookies from "js-cookie";
 const intitialState = {
   user: Cookies.get("user") ? JSON.parse(Cookies.get("user")) : {},
@@ -22,7 +22,12 @@ export const userReducer = (state = intitialState, action) => {
         user: {},
         isLoggedIn: false,
       };
-
+    case UPDATE_USER:
+      Cookies.set("user", JSON.stringify(action.payload));
+      return {
+        ...state,
+        user: action.payload,
+      };
     default:
       return state;
   }

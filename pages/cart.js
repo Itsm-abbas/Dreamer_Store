@@ -48,9 +48,7 @@ const Cart = () => {
         newestOnTop={false}
         closeOnClick
         rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
+        limit={1}
       />
       <section className="flex justify-center items-center flex-col w-full">
         <h1 className="text-3xl font-bold mb-16">Shopping Cart</h1>
