@@ -7,12 +7,16 @@ import { useRouter } from "next/router";
 import { ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
 import { updateUser } from "../redux/User/user.action";
+import Loader from "../components/Loader";
 const Profile = () => {
+  const dispatch = useDispatch();
   const router = useRouter();
   const [avatar, setAvatar] = useState("");
+  const [loading, setLoading] = useState(false);
   const user = useSelector((state) => state.User.user);
   let isLoggedIn = useSelector((state) => state.User.isLoggedIn);
   const formHandler = (e) => {
+    setLoading(true);
     e.preventDefault();
     axios
       .post("/api/update", {
@@ -24,6 +28,7 @@ const Profile = () => {
       })
       .then((res) => {
         toast.success(res.data.message);
+        setLoading(false);
         dispatch(updateUser(res.data.user));
       })
       .catch((err) => {
@@ -50,7 +55,6 @@ const Profile = () => {
         newestOnTop={false}
         closeOnClick
         rtl={false}
-        limit={1}
       />
       <main className="flex flex-col md:gap-10 md:flex-row ">
         <div className="flex flex-col bg-white w-full md:w-1/3 p-5 md:p-10 justify-center rounded-md shadow-md mb-12 md:mb-0">
@@ -158,9 +162,9 @@ const Profile = () => {
 
             <button
               type="submit"
-              className="capitalize text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
+              className="capitalize text-white bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-800"
             >
-              Update Account
+              {loading ? <Loader /> : "Update Profile"}
             </button>
           </form>
         </div>

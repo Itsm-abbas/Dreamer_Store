@@ -15,7 +15,9 @@ export const logoutUser = () => {
     refresh,
   };
 };
-export const updateUser = (user) => ({
-  type: UPDATE_USER,
-  payload: user,
-});
+export const updateUser = (user) => {
+  return {
+    type: UPDATE_USER,
+    payload: user,
+  };
+};
